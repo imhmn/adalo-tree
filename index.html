@@ -1,0 +1,246 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <meta http-equiv="Content-Style-Type" content="text/css">
+  <title></title>
+  <meta name="Generator" content="Cocoa HTML Writer">
+  <meta name="CocoaVersion" content="2487.5">
+  <style type="text/css">
+    p.p1 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px 'Helvetica Neue'; color: #191919}
+    p.p2 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px 'Helvetica Neue'; color: #0b61ca}
+    p.p3 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px 'Helvetica Neue'; min-height: 14.0px}
+    span.s1 {font-kerning: none}
+    span.s2 {font-kerning: none; color: #191919}
+    span.s3 {text-decoration: underline ; font-kerning: none; color: #0b61ca}
+  </style>
+</head>
+<body>
+<p class="p1"><span class="s1">&lt;!DOCTYPE html&gt;</span></p>
+<p class="p1"><span class="s1">&lt;html lang="en"&gt;</span></p>
+<p class="p1"><span class="s1">&lt;head&gt;</span></p>
+<p class="p1"><span class="s1">    &lt;meta charset="UTF-8"&gt;</span></p>
+<p class="p1"><span class="s1">    &lt;!-- This viewport tag is crucial for responsiveness in a mobile Web View --&gt;</span></p>
+<p class="p1"><span class="s1">    &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;</span></p>
+<p class="p1"><span class="s1">    &lt;title&gt;Analytics Maturity Model&lt;/title&gt;</span></p>
+<p class="p1"><span class="s1">    &lt;!-- Tailwind CSS is loaded from a CDN for styling --&gt;</span></p>
+<p class="p2"><span class="s2">    &lt;script src="<a href="https://cdn.tailwindcss.com%22%3E%3C/script%3E"><span class="s3">https://cdn.tailwindcss.com"&gt;&lt;/script&gt;</span></a></span></p>
+<p class="p1"><span class="s1">    &lt;!-- Google Fonts are loaded from a CDN --&gt;</span></p>
+<p class="p2"><span class="s2">    &lt;link href="<a href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&amp;display=swap"><span class="s3">https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&amp;display=swap</span></a>" rel="stylesheet"&gt;</span></p>
+<p class="p1"><span class="s1">    &lt;style&gt;</span></p>
+<p class="p1"><span class="s1">        /* * All styles are contained within this &lt;style&gt; tag.</span></p>
+<p class="p1"><span class="s1">         * The layout uses relative units and responsive design principles to adapt to different screen sizes.</span></p>
+<p class="p1"><span class="s1">        */</span></p>
+<p class="p1"><span class="s1">        body {</span></p>
+<p class="p1"><span class="s1">            font-family: 'Inter', sans-serif;</span></p>
+<p class="p1"><span class="s1">            background-color: #f0f4f8;</span></p>
+<p class="p1"><span class="s1">            margin: 0;</span></p>
+<p class="p1"><span class="s1">            padding: 0;</span></p>
+<p class="p1"><span class="s1">            /* Prevents horizontal scrolling */</span></p>
+<p class="p1"><span class="s1">            overflow-x: hidden;</span></p>
+<p class="p1"><span class="s1">        }</span></p>
+<p class="p1"><span class="s1">        .main-container {</span></p>
+<p class="p1"><span class="s1">            max-width: 1000px;</span></p>
+<p class="p1"><span class="s1">            margin: 0 auto;</span></p>
+<p class="p1"><span class="s1">            padding: 1rem;</span></p>
+<p class="p1"><span class="s1">        }</span></p>
+<p class="p1"><span class="s1">        .tree-container {</span></p>
+<p class="p1"><span class="s1">            position: relative;</span></p>
+<p class="p1"><span class="s1">            width: 100%;</span></p>
+<p class="p1"><span class="s1">            /* Using viewport height (vh) makes it adapt to screen height */</span></p>
+<p class="p1"><span class="s1">            height: 65vh; </span></p>
+<p class="p1"><span class="s1">            min-height: 500px; /* Ensures the tree is not too small on short screens */</span></p>
+<p class="p1"><span class="s1">            margin: 1rem auto;</span></p>
+<p class="p1"><span class="s1">        }</span></p>
+<p class="p1"><span class="s1">        .branch {</span></p>
+<p class="p1"><span class="s1">            position: absolute;</span></p>
+<p class="p1"><span class="s1">            background-color: #6d4c41; /* Brown color for branches */</span></p>
+<p class="p1"><span class="s1">            border-radius: 10px;</span></p>
+<p class="p1"><span class="s1">            transform-origin: bottom center;</span></p>
+<p class="p1"><span class="s1">            cursor: pointer;</span></p>
+<p class="p1"><span class="s1">            transition: all 0.3s ease-in-out;</span></p>
+<p class="p1"><span class="s1">            box-shadow: 0 4px 6px rgba(0,0,0,0.1);</span></p>
+<p class="p1"><span class="s1">        }</span></p>
+<p class="p1"><span class="s1">        .branch:hover {</span></p>
+<p class="p1"><span class="s1">            transform: scale(1.05) rotate(var(--hover-rotate, 0deg)) !important;</span></p>
+<p class="p1"><span class="s1">            background-color: #8d6e63;</span></p>
+<p class="p1"><span class="s1">        }</span></p>
+<p class="p1"><span class="s1">        .label {</span></p>
+<p class="p1"><span class="s1">            position: absolute;</span></p>
+<p class="p1"><span class="s1">            bottom: 110%;</span></p>
+<p class="p1"><span class="s1">            left: 50%;</span></p>
+<p class="p1"><span class="s1">            transform: translateX(-50%);</span></p>
+<p class="p1"><span class="s1">            background-color: #4a5568;</span></p>
+<p class="p1"><span class="s1">            color: white;</span></p>
+<p class="p1"><span class="s1">            padding: 6px 12px;</span></p>
+<p class="p1"><span class="s1">            border-radius: 9999px;</span></p>
+<p class="p1"><span class="s1">            font-size: 0.8rem;</span></p>
+<p class="p1"><span class="s1">            font-weight: 500;</span></p>
+<p class="p1"><span class="s1">            white-space: nowrap;</span></p>
+<p class="p1"><span class="s1">            text-align: center;</span></p>
+<p class="p1"><span class="s1">            box-shadow: 0 2px 4px rgba(0,0,0,0.1);</span></p>
+<p class="p1"><span class="s1">            opacity: 0;</span></p>
+<p class="p1"><span class="s1">            visibility: hidden;</span></p>
+<p class="p1"><span class="s1">            transition: all 0.3s ease-in-out;</span></p>
+<p class="p1"><span class="s1">        }</span></p>
+<p class="p1"><span class="s1">        .branch:hover .label {</span></p>
+<p class="p1"><span class="s1">            opacity: 1;</span></p>
+<p class="p1"><span class="s1">            visibility: visible;</span></p>
+<p class="p1"><span class="s1">        }</span></p>
+<p class="p1"><span class="s1">        .trunk {</span></p>
+<p class="p1"><span class="s1">            position: absolute;</span></p>
+<p class="p1"><span class="s1">            bottom: 0;</span></p>
+<p class="p1"><span class="s1">            left: 50%;</span></p>
+<p class="p1"><span class="s1">            transform: translateX(-50%);</span></p>
+<p class="p1"><span class="s1">            width: 80px;</span></p>
+<p class="p1"><span class="s1">            height: 150px;</span></p>
+<p class="p1"><span class="s1">            background-color: #5d4037;</span></p>
+<p class="p1"><span class="s1">            border-top-left-radius: 10px;</span></p>
+<p class="p1"><span class="s1">            border-top-right-radius: 10px;</span></p>
+<p class="p1"><span class="s1">            cursor: pointer;</span></p>
+<p class="p1"><span class="s1">            transition: all 0.3s ease-in-out;</span></p>
+<p class="p1"><span class="s1">            box-shadow: 0 4px 6px rgba(0,0,0,0.1);</span></p>
+<p class="p1"><span class="s1">        }</span></p>
+<p class="p1"><span class="s1">        .trunk:hover {</span></p>
+<p class="p1"><span class="s1">            background-color: #795548;</span></p>
+<p class="p1"><span class="s1">            transform: translateX(-50%) scale(1.02);</span></p>
+<p class="p1"><span class="s1">        }</span></p>
+<p class="p1"><span class="s1">        .trunk .label {</span></p>
+<p class="p1"><span class="s1">            bottom: auto;</span></p>
+<p class="p1"><span class="s1">            top: 50%;</span></p>
+<p class="p1"><span class="s1">            transform: translate(-50%, -50%);</span></p>
+<p class="p1"><span class="s1">            opacity: 1;</span></p>
+<p class="p1"><span class="s1">            background-color: #ffffff;</span></p>
+<p class="p1"><span class="s1">            color: #374151;</span></p>
+<p class="p1"><span class="s1">            font-size: 1rem;</span></p>
+<p class="p1"><span class="s1">            padding: 10px 20px;</span></p>
+<p class="p1"><span class="s1">            visibility: visible;</span></p>
+<p class="p1"><span class="s1">        }</span></p>
+<p class="p1"><span class="s1">        /* Modal styles */</span></p>
+<p class="p1"><span class="s1">        .modal-overlay {</span></p>
+<p class="p1"><span class="s1">            position: fixed;</span></p>
+<p class="p1"><span class="s1">            top: 0;</span></p>
+<p class="p1"><span class="s1">            left: 0;</span></p>
+<p class="p1"><span class="s1">            right: 0;</span></p>
+<p class="p1"><span class="s1">            bottom: 0;</span></p>
+<p class="p1"><span class="s1">            background: rgba(0, 0, 0, 0.6);</span></p>
+<p class="p1"><span class="s1">            display: flex;</span></p>
+<p class="p1"><span class="s1">            align-items: center;</span></p>
+<p class="p1"><span class="s1">            justify-content: center;</span></p>
+<p class="p1"><span class="s1">            z-index: 50;</span></p>
+<p class="p1"><span class="s1">            opacity: 0;</span></p>
+<p class="p1"><span class="s1">            visibility: hidden;</span></p>
+<p class="p1"><span class="s1">            transition: opacity 0.3s ease, visibility 0.3s ease;</span></p>
+<p class="p1"><span class="s1">        }</span></p>
+<p class="p1"><span class="s1">        .modal-overlay.active {</span></p>
+<p class="p1"><span class="s1">            opacity: 1;</span></p>
+<p class="p1"><span class="s1">            visibility: visible;</span></p>
+<p class="p1"><span class="s1">        }</span></p>
+<p class="p1"><span class="s1">        .modal-content {</span></p>
+<p class="p1"><span class="s1">            background: white;</span></p>
+<p class="p1"><span class="s1">            padding: 2rem;</span></p>
+<p class="p1"><span class="s1">            border-radius: 1rem;</span></p>
+<p class="p1"><span class="s1">            max-width: 500px;</span></p>
+<p class="p1"><span class="s1">            width: 90%;</span></p>
+<p class="p1"><span class="s1">            transform: scale(0.95);</span></p>
+<p class="p1"><span class="s1">            transition: transform 0.3s ease;</span></p>
+<p class="p1"><span class="s1">        }</span></p>
+<p class="p1"><span class="s1">        .modal-overlay.active .modal-content {</span></p>
+<p class="p1"><span class="s1">            transform: scale(1);</span></p>
+<p class="p1"><span class="s1">        }</span></p>
+<p class="p1"><span class="s1">    &lt;/style&gt;</span></p>
+<p class="p1"><span class="s1">&lt;/head&gt;</span></p>
+<p class="p1"><span class="s1">&lt;body class="bg-gray-100"&gt;</span></p>
+<p class="p3"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1">    &lt;div class="main-container text-center"&gt;</span></p>
+<p class="p1"><span class="s1">        &lt;h1 class="text-2xl md:text-3xl font-bold text-gray-800 mb-2"&gt;Analytics Maturity Model&lt;/h1&gt;</span></p>
+<p class="p1"><span class="s1">        &lt;p class="text-gray-600 text-sm md:text-base max-w-2xl mx-auto"&gt;Click on the trunk or branches to explore.&lt;/p&gt;</span></p>
+<p class="p1"><span class="s1">    &lt;/div&gt;</span></p>
+<p class="p3"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1">    &lt;div class="tree-container"&gt;</span></p>
+<p class="p1"><span class="s1">        &lt;!-- Trunk --&gt;</span></p>
+<p class="p1"><span class="s1">        &lt;div id="trunk" class="trunk" onclick="showModal('Leadership')"&gt;</span></p>
+<p class="p1"><span class="s1">            &lt;div class="label"&gt;Leadership&lt;/div&gt;</span></p>
+<p class="p1"><span class="s1">        &lt;/div&gt;</span></p>
+<p class="p3"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1">        &lt;!-- Branches (styles adjusted for better mobile view) --&gt;</span></p>
+<p class="p1"><span class="s1">        &lt;div class="branch" style="width: 10px; height: 35%; bottom: 145px; left: 50%; transform: translateX(-50%) rotate(-60deg); --hover-rotate: -62deg;" onclick="showModal('Data Governance')"&gt;</span></p>
+<p class="p1"><span class="s1">             &lt;div class="label"&gt;Data Governance&lt;/div&gt;</span></p>
+<p class="p1"><span class="s1">        &lt;/div&gt;</span></p>
+<p class="p1"><span class="s1">        &lt;div class="branch" style="width: 10px; height: 40%; bottom: 145px; left: 50%; transform: translateX(-50%) rotate(-40deg); --hover-rotate: -42deg;" onclick="showModal('Data Management')"&gt;</span></p>
+<p class="p1"><span class="s1">             &lt;div class="label"&gt;Data Management&lt;/div&gt;</span></p>
+<p class="p1"><span class="s1">        &lt;/div&gt;</span></p>
+<p class="p1"><span class="s1">        &lt;div class="branch" style="width: 10px; height: 48%; bottom: 145px; left: 50%; transform: translateX(-50%) rotate(-20deg); --hover-rotate: -22deg;" onclick="showModal('Advanced Analytics')"&gt;</span></p>
+<p class="p1"><span class="s1">             &lt;div class="label"&gt;Advanced Analytics&lt;/div&gt;</span></p>
+<p class="p1"><span class="s1">        &lt;/div&gt;</span></p>
+<p class="p1"><span class="s1">        &lt;div class="branch" style="width: 12px; height: 55%; bottom: 145px; left: 50%; transform: translateX(-50%) rotate(0deg); --hover-rotate: -2deg;" onclick="showModal('BI &amp; Reporting')"&gt;</span></p>
+<p class="p1"><span class="s1">             &lt;div class="label"&gt;BI &amp; Reporting&lt;/div&gt;</span></p>
+<p class="p1"><span class="s1">        &lt;/div&gt;</span></p>
+<p class="p1"><span class="s1">        &lt;div class="branch" style="width: 10px; height: 48%; bottom: 145px; left: 50%; transform: translateX(-50%) rotate(20deg); --hover-rotate: 22deg;" onclick="showModal('Data Literacy')"&gt;</span></p>
+<p class="p1"><span class="s1">             &lt;div class="label"&gt;Data Literacy&lt;/div&gt;</span></p>
+<p class="p1"><span class="s1">        &lt;/div&gt;</span></p>
+<p class="p1"><span class="s1">        &lt;div class="branch" style="width: 10px; height: 40%; bottom: 145px; left: 50%; transform: translateX(-50%) rotate(40deg); --hover-rotate: 42deg;" onclick="showModal('Technology &amp; Infrastructure')"&gt;</span></p>
+<p class="p1"><span class="s1">             &lt;div class="label"&gt;Tech &amp; Infra&lt;/div&gt;</span></p>
+<p class="p1"><span class="s1">        &lt;/div&gt;</span></p>
+<p class="p1"><span class="s1">        &lt;div class="branch" style="width: 10px; height: 35%; bottom: 145px; left: 50%; transform: translateX(-50%) rotate(60deg); --hover-rotate: 62deg;" onclick="showModal('Culture &amp; Adoption')"&gt;</span></p>
+<p class="p1"><span class="s1">             &lt;div class="label"&gt;Culture &amp; Adoption&lt;/div&gt;</span></p>
+<p class="p1"><span class="s1">        &lt;/div&gt;</span></p>
+<p class="p1"><span class="s1">    &lt;/div&gt;</span></p>
+<p class="p3"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1">    &lt;!-- Modal --&gt;</span></p>
+<p class="p1"><span class="s1">    &lt;div id="modal-overlay" class="modal-overlay"&gt;</span></p>
+<p class="p1"><span class="s1">        &lt;div class="modal-content"&gt;</span></p>
+<p class="p1"><span class="s1">            &lt;h2 id="modal-title" class="text-2xl font-bold text-gray-800 mb-4"&gt;&lt;/h2&gt;</span></p>
+<p class="p1"><span class="s1">            &lt;p id="modal-description" class="text-gray-600 mb-6"&gt;&lt;/p&gt;</span></p>
+<p class="p1"><span class="s1">            &lt;button onclick="hideModal()" class="w-full bg-indigo-600 text-white font-bold py-2 px-4 rounded-lg hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 transition"&gt;</span></p>
+<p class="p1"><span class="s1">                Close</span></p>
+<p class="p1"><span class="s1">            &lt;/button&gt;</span></p>
+<p class="p1"><span class="s1">        &lt;/div&gt;</span></p>
+<p class="p1"><span class="s1">    &lt;/div&gt;</span></p>
+<p class="p3"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1">    &lt;script&gt;</span></p>
+<p class="p1"><span class="s1">        // All JavaScript is contained within this &lt;script&gt; tag.</span></p>
+<p class="p1"><span class="s1">        const modalData = {</span></p>
+<p class="p1"><span class="s1">            'Leadership': 'Provides the vision, strategy, and sponsorship essential for fostering a data-driven culture. Leadership champions analytics initiatives, allocates resources, and removes organizational barriers to ensure success.',</span></p>
+<p class="p1"><span class="s1">            'Data Governance': 'Establishes the policies, standards, and processes for managing data as a strategic asset. It ensures data is accurate, consistent, secure, and available to the right people at the right time.',</span></p>
+<p class="p1"><span class="s1">            'Data Management': 'Involves the entire lifecycle of data, from acquisition and storage to processing and archival. Effective data management ensures a reliable and high-quality data foundation for all analytics activities.',</span></p>
+<p class="p1"><span class="s1">            'Advanced Analytics': 'Leverages sophisticated techniques like machine learning, predictive modeling, and AI to uncover deeper insights, predict future outcomes, and automate decision-making.',</span></p>
+<p class="p1"><span class="s1">            'BI &amp; Reporting': 'Focuses on transforming data into actionable insights through dashboards, reports, and visualizations. It empowers business users to monitor performance, identify trends, and make informed decisions.',</span></p>
+<p class="p1"><span class="s1">            'Data Literacy': 'The ability of employees across the organization to read, work with, analyze, and communicate with data. A data-literate workforce can effectively use data to support their daily tasks and strategic objectives.',</span></p>
+<p class="p1"><span class="s1">            'Tech &amp; Infra': 'The foundation of the analytics ecosystem, including databases, data warehouses, cloud platforms, and analytics tools. A modern, scalable infrastructure is critical for supporting advanced analytics capabilities.',</span></p>
+<p class="p1"><span class="s1">            'Culture &amp; Adoption': 'Fosters an environment where data is valued, trusted, and used to make decisions at all levels. It involves change management, training, and communication to drive the adoption of analytics tools and processes.'</span></p>
+<p class="p1"><span class="s1">        };</span></p>
+<p class="p3"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1">        const modalOverlay = document.getElementById('modal-overlay');</span></p>
+<p class="p1"><span class="s1">        const modalTitle = document.getElementById('modal-title');</span></p>
+<p class="p1"><span class="s1">        const modalDescription = document.getElementById('modal-description');</span></p>
+<p class="p3"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1">        function showModal(program) {</span></p>
+<p class="p1"><span class="s1">            if (modalData[program]) {</span></p>
+<p class="p1"><span class="s1">                modalTitle.textContent = program;</span></p>
+<p class="p1"><span class="s1">                modalDescription.textContent = modalData[program];</span></p>
+<p class="p1"><span class="s1">                modalOverlay.classList.add('active');</span></p>
+<p class="p1"><span class="s1">            }</span></p>
+<p class="p1"><span class="s1">        }</span></p>
+<p class="p3"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1">        function hideModal() {</span></p>
+<p class="p1"><span class="s1">            modalOverlay.classList.remove('active');</span></p>
+<p class="p1"><span class="s1">        }</span></p>
+<p class="p3"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1">        // Event listeners for closing the modal</span></p>
+<p class="p1"><span class="s1">        modalOverlay.addEventListener('click', function(event) {</span></p>
+<p class="p1"><span class="s1">            if (event.target === modalOverlay) {</span></p>
+<p class="p1"><span class="s1">                hideModal();</span></p>
+<p class="p1"><span class="s1">            }</span></p>
+<p class="p1"><span class="s1">        });</span></p>
+<p class="p3"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1">        document.addEventListener('keydown', function(event) {</span></p>
+<p class="p1"><span class="s1">            if (event.key === 'Escape') {</span></p>
+<p class="p1"><span class="s1">                hideModal();</span></p>
+<p class="p1"><span class="s1">            }</span></p>
+<p class="p1"><span class="s1">        });</span></p>
+<p class="p1"><span class="s1">    &lt;/script&gt;</span></p>
+<p class="p1"><span class="s1">&lt;/body&gt;</span></p>
+<p class="p1"><span class="s1">&lt;/html&gt;</span></p>
+</body>
+</html>
